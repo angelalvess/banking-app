@@ -1,7 +1,7 @@
 import React from 'react'
 
-const MoneySend = () => {
-  return <div>MoneySend</div>
+const Transfer = () => {
+  return <div>Transfer</div>
 }
 
-export default MoneySend
+export default Transfer
