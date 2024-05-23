@@ -17,6 +17,7 @@ import { Loader2 } from 'lucide-react'
 
 import { useRouter } from 'next/navigation'
 import { signUp, signIn, getLoggedInUser } from '@/lib/actions/use.actions'
+import PlaidLink from './PlaidLink'
 
 const AuthForm = ({ type }: { type: string }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -38,9 +39,22 @@ const AuthForm = ({ type }: { type: string }) => {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const onSubmit = async (data: z.infer<typeof formSchema>) => {
     setLoading(true)
+
     try {
       if (type === 'sign-up') {
-        const newUser = await signUp(data)
+        const userData = {
+          firstName: data.firstName!,
+          lastName: data.lastName!,
+          address1: data.address1!,
+          city: data.city!,
+          state: data.state!,
+          postalCode: data.postalCode!,
+          dateOfBirth: data.dateOfBirth!,
+          ssn: data.ssn!,
+          email: data.email,
+          password: data.password,
+        }
+        const newUser = await signUp(userData)
         setUser(newUser)
         console.log('New user:', newUser)
       }
@@ -90,7 +104,9 @@ const AuthForm = ({ type }: { type: string }) => {
         </div>
       </header>
       {user ? (
-        <div className="flex flex-col gap-4"></div>
+        <div className="flex flex-col gap-4">
+          <PlaidLink user={user} variant="primary" />
+        </div>
       ) : (
         <>
           <Form {...form}>
