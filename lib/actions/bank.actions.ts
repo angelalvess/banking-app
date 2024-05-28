@@ -60,7 +60,7 @@ export const getAccounts = async ({ userId }: getAccountsProps) => {
 export const getAccount = async ({ appwriteItemId }: getAccountProps) => {
   try {
     // get bank from db
-    const bank = await getBank({ documentId: appwriteItemId })
+    const bank: Bank = await getBank({ documentId: appwriteItemId })
 
     // get account info from plaid
     const accountsResponse = await plaidClient.accountsGet({
