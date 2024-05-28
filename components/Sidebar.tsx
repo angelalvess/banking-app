@@ -7,6 +7,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React from 'react'
 import Footer from './Footer'
+import PlaidLink from './PlaidLink'
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 const Sidebar = ({ user }: SiderbarProps) => {
@@ -53,7 +54,7 @@ const Sidebar = ({ user }: SiderbarProps) => {
             </Link>
           )
         })}
-        User
+        <PlaidLink user={user} />
       </nav>
       <Footer user={user} />
     </section>

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable no-unused-vars */
 
 declare type SearchParamProps = {
@@ -61,7 +60,7 @@ declare type Account = {
   type: string
   subtype: string
   appwriteItemId: string
-  sharableId: string
+  shareableId: string
 }
 
 declare type Transaction = {
@@ -90,7 +89,7 @@ declare type Bank = {
   accessToken: string
   fundingSourceUrl: string
   userId: string
-  sharableId: string
+  shareableId: string
 }
 
 declare type AccountTypes =
@@ -195,6 +194,7 @@ declare interface AuthFormProps {
 
 declare interface BankDropdownProps {
   accounts: Account[]
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   setValue?: UseFormSetValue<any>
   otherStyles?: string
 }
@@ -204,7 +204,7 @@ declare interface BankTabItemProps {
   appwriteItemId?: string
 }
 
-declare interface TotlaBalanceBoxProps {
+declare interface TotalBalanceBoxProps {
   accounts: Account[]
   totalBanks: number
   totalCurrentBalance: number
@@ -212,7 +212,7 @@ declare interface TotlaBalanceBoxProps {
 
 declare interface FooterProps {
   user: User
-  type?: 'desktop' | 'mobile'
+  type?: 'mobile' | 'desktop'
 }
 
 declare interface RightSidebarProps {
