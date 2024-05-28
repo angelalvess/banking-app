@@ -7,7 +7,10 @@ import React from 'react'
 
 const MyBanks = async () => {
   const loggedIn = await getLoggedInUser()
-  const accounts = await getAccounts({ userId: loggedIn.$id })
+  const accounts = await getAccounts({
+    userId: loggedIn.$id,
+  })
+
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
   return (
